@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "129780258995",
+    "project_id": "cafeza-5dg6qy",
+    "storage_bucket": "cafeza-5dg6qy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129780258995:android:3184c789338d5070bf38c6",
+        "android_client_info": {
+          "package_name": "com.kazungudev.cafeza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129780258995-0h9qv33lmvjug4ka14tlo20pbha29gkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2cSISji_gUC-xk7Z2FoDw3EuYzxRvJcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129780258995-0h9qv33lmvjug4ka14tlo20pbha29gkb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "129780258995-goro2jpgm9su8ou9ppihmhkef4nfiina.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kazungudev.cafeza"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

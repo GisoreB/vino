@@ -1,0 +1,41 @@
+pluginManagement {
+    // Fix for AGP AndroidLocationsException when both ANDROID_PREFS_ROOT and ANDROID_USER_HOME are present
+    try {
+        def pe = Class.forName("java.lang.ProcessEnvironment")
+        def field1 = pe.getDeclaredField("theEnvironment")
+        field1.setAccessible(true)
+        ((Map) field1.get(null)).remove("ANDROID_PREFS_ROOT")
+        def field2 = pe.getDeclaredField("theCaseInsensitiveEnvironment")
+        field2.setAccessible(true)
+        ((Map) field2.get(null)).remove("ANDROID_PREFS_ROOT")
+    } catch (Throwable ignored) {
+    }
+    System.clearProperty("ANDROID_PREFS_ROOT")
+    def flutterSdkPath = {
+        def properties = new Properties()
+        file("local.properties").withInputStream { properties.load(it) }
+        def flutterSdkPath = properties.getProperty("flutter.sdk")
+        assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+        return flutterSdkPath
+    }()
+
+    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id "dev.flutter.flutter-plugin-loader" version "1.0.0"
+    id "com.android.application" version '8.13.2' apply false
+    id "org.jetbrains.kotlin.android" version "2.2.20" apply false
+    id "com.google.gms.google-services" version "4.4.4" apply false
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+    // Google Services plugin
+    
+}
+
+include ":app"
